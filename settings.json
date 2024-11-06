@@ -5,7 +5,7 @@
     "entry_point": "/",
     "proxy_server": {
         "host": "localhost",
-        "port": 5000
+        "port": 8000
     },
     "remote_server": {
         "uri": "https://applantus.azurewebsites.net"
