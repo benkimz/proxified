@@ -1,1 +1,2 @@
+asyncio==3.4.3
 shadowserver==0.2.2
