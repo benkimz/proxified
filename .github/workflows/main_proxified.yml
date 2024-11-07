@@ -22,15 +22,15 @@ jobs:
     - name: Log in to registry
       uses: docker/login-action@v2
       with:
-        registry: https://mcr.microsoft.com/
-        username: ${{ secrets.AzureAppService_ContainerUsername_f15487f4c3d44ffe9a156a25b7a0a3a3 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_f6a83d38fba84ef59dbc5301ec82e3e4 }}
+        registry: https://applantus.azurecr.io/
+        username: ${{ secrets.AzureAppService_ContainerUsername_84ff73555edb4b7697581d9d90faec26 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_fe75c6e8f2b64d2aa4d14f0ce9f31773 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_f15487f4c3d44ffe9a156a25b7a0a3a3 }}/appsvc/staticsite:${{ github.sha }}
+        tags: applantus.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_84ff73555edb4b7697581d9d90faec26 }}/applantus.azurecr.io/proxyserver-web:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'proxified'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_6e112eaa53d245eeb5de07f5b5b5fbee }}
-        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_f15487f4c3d44ffe9a156a25b7a0a3a3 }}/appsvc/staticsite:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_80417b9984df4dcd8815ec9489ce1bac }}
+        images: 'applantus.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_84ff73555edb4b7697581d9d90faec26 }}/applantus.azurecr.io/proxyserver-web:${{ github.sha }}'
