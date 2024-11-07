@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ${{ secrets.AzureAppService_ContainerUsername_4c69ced470c94881ac9812e546f69e76 }}/applantus-proxy-served:${{ github.sha }}
+          tags: benkimz/applantus-proxy-served:${{ github.sha }}
           file: ./Dockerfile
 
   deploy:
